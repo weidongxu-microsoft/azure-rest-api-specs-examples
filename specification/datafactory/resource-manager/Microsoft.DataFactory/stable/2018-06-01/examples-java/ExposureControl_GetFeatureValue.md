@@ -1,0 +1,29 @@
+```java
+import com.azure.core.util.Context;
+import com.azure.resourcemanager.datafactory.models.ExposureControlRequest;
+
+/** Samples for ExposureControl GetFeatureValue. */
+public final class ExposureControlGetFeatureValue {
+    /*
+     * operationId: ExposureControl_GetFeatureValue
+     * api-version: 2018-06-01
+     * x-ms-examples: ExposureControl_GetFeatureValue
+     */
+    /**
+     * Sample code: ExposureControl_GetFeatureValue.
+     *
+     * @param manager Entry point to DataFactoryManager.
+     */
+    public static void exposureControlGetFeatureValue(
+        com.azure.resourcemanager.datafactory.DataFactoryManager manager) {
+        manager
+            .exposureControls()
+            .getFeatureValueWithResponse(
+                "WestEurope",
+                new ExposureControlRequest()
+                    .withFeatureName("ADFIntegrationRuntimeSharingRbac")
+                    .withFeatureType("Feature"),
+                Context.NONE);
+    }
+}
+```

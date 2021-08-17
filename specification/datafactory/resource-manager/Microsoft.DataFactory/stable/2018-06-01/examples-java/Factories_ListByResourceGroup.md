@@ -1,0 +1,20 @@
+```java
+import com.azure.core.util.Context;
+
+/** Samples for Factories ListByResourceGroup. */
+public final class FactoriesListByResourceGroup {
+    /*
+     * operationId: Factories_ListByResourceGroup
+     * api-version: 2018-06-01
+     * x-ms-examples: Factories_ListByResourceGroup
+     */
+    /**
+     * Sample code: Factories_ListByResourceGroup.
+     *
+     * @param manager Entry point to DataFactoryManager.
+     */
+    public static void factoriesListByResourceGroup(com.azure.resourcemanager.datafactory.DataFactoryManager manager) {
+        manager.factories().listByResourceGroup("exampleResourceGroup", Context.NONE);
+    }
+}
+```
