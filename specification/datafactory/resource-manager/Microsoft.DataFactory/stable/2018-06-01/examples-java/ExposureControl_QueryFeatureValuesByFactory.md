@@ -1,11 +1,14 @@
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.5/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
+
 ```java
+
 import com.azure.core.util.Context;
 import com.azure.resourcemanager.datafactory.models.ExposureControlBatchRequest;
 import com.azure.resourcemanager.datafactory.models.ExposureControlRequest;
 import java.util.Arrays;
 
 /** Samples for ExposureControl QueryFeatureValuesByFactory. */
-public final class ExposureControlQueryFeatureValuesByFactory {
+public final class Main {
     /*
      * operationId: ExposureControl_QueryFeatureValuesByFactory
      * api-version: 2018-06-01

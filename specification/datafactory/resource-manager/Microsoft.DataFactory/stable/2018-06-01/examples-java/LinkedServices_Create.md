@@ -14,26 +14,21 @@ public final class Main {
     /*
      * operationId: LinkedServices_CreateOrUpdate
      * api-version: 2018-06-01
-     * x-ms-examples: LinkedServices_Update
+     * x-ms-examples: LinkedServices_Create
      */
     /**
-     * Sample code: LinkedServices_Update.
+     * Sample code: LinkedServices_Create.
      *
      * @param manager Entry point to DataFactoryManager.
      */
-    public static void linkedServicesUpdate(com.azure.resourcemanager.datafactory.DataFactoryManager manager)
+    public static void linkedServicesCreate(com.azure.resourcemanager.datafactory.DataFactoryManager manager)
         throws IOException {
-        LinkedServiceResource resource =
-            manager
-                .linkedServices()
-                .getWithResponse(
-                    "exampleResourceGroup", "exampleFactoryName", "exampleLinkedService", null, Context.NONE)
-                .getValue();
-        resource
-            .update()
+        manager
+            .linkedServices()
+            .define("exampleLinkedService")
+            .withExistingFactory("exampleResourceGroup", "exampleFactoryName")
             .withProperties(
                 new AzureStorageLinkedService()
-                    .withDescription("Example description")
                     .withConnectionString(
                         SerializerFactory
                             .createDefaultManagementSerializerAdapter()
@@ -42,7 +37,7 @@ public final class Main {
                                     + " key>\"}",
                                 Object.class,
                                 SerializerEncoding.JSON)))
-            .apply();
+            .create();
     }
 }
 ```

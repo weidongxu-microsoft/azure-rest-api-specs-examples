@@ -20,25 +20,21 @@ public final class Main {
     /*
      * operationId: Datasets_CreateOrUpdate
      * api-version: 2018-06-01
-     * x-ms-examples: Datasets_Update
+     * x-ms-examples: Datasets_Create
      */
     /**
-     * Sample code: Datasets_Update.
+     * Sample code: Datasets_Create.
      *
      * @param manager Entry point to DataFactoryManager.
      */
-    public static void datasetsUpdate(com.azure.resourcemanager.datafactory.DataFactoryManager manager)
+    public static void datasetsCreate(com.azure.resourcemanager.datafactory.DataFactoryManager manager)
         throws IOException {
-        DatasetResource resource =
-            manager
-                .datasets()
-                .getWithResponse("exampleResourceGroup", "exampleFactoryName", "exampleDataset", null, Context.NONE)
-                .getValue();
-        resource
-            .update()
+        manager
+            .datasets()
+            .define("exampleDataset")
+            .withExistingFactory("exampleResourceGroup", "exampleFactoryName")
             .withProperties(
                 new AzureBlobDataset()
-                    .withDescription("Example description")
                     .withLinkedServiceName(new LinkedServiceReference().withReferenceName("exampleLinkedService"))
                     .withParameters(
                         mapOf(
@@ -61,7 +57,7 @@ public final class Main {
                                 Object.class,
                                 SerializerEncoding.JSON))
                     .withFormat(new TextFormat()))
-            .apply();
+            .create();
     }
 
     @SuppressWarnings("unchecked")

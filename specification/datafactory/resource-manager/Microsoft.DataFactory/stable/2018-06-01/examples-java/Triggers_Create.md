@@ -16,32 +16,28 @@ public final class Main {
     /*
      * operationId: Triggers_CreateOrUpdate
      * api-version: 2018-06-01
-     * x-ms-examples: Triggers_Update
+     * x-ms-examples: Triggers_Create
      */
     /**
-     * Sample code: Triggers_Update.
+     * Sample code: Triggers_Create.
      *
      * @param manager Entry point to DataFactoryManager.
      */
-    public static void triggersUpdate(com.azure.resourcemanager.datafactory.DataFactoryManager manager)
+    public static void triggersCreate(com.azure.resourcemanager.datafactory.DataFactoryManager manager)
         throws IOException {
-        TriggerResource resource =
-            manager
-                .triggers()
-                .getWithResponse("exampleResourceGroup", "exampleFactoryName", "exampleTrigger", null, Context.NONE)
-                .getValue();
-        resource
-            .update()
+        manager
+            .triggers()
+            .define("exampleTrigger")
+            .withExistingFactory("exampleResourceGroup", "exampleFactoryName")
             .withProperties(
                 new Trigger()
-                    .withDescription("Example description")
                     .withAdditionalProperties(
                         mapOf(
                             "typeProperties",
                             SerializerFactory
                                 .createDefaultManagementSerializerAdapter()
                                 .deserialize(
-                                    "{\"recurrence\":{\"endTime\":\"2018-06-16T00:55:14.905167Z\",\"frequency\":\"Minute\",\"interval\":4,\"startTime\":\"2018-06-16T00:39:14.905167Z\",\"timeZone\":\"UTC\"}}",
+                                    "{\"recurrence\":{\"endTime\":\"2018-06-16T00:55:13.8441801Z\",\"frequency\":\"Minute\",\"interval\":4,\"startTime\":\"2018-06-16T00:39:13.8441801Z\",\"timeZone\":\"UTC\"}}",
                                     Object.class,
                                     SerializerEncoding.JSON),
                             "pipelines",
@@ -53,7 +49,7 @@ public final class Main {
                                     SerializerEncoding.JSON),
                             "type",
                             "ScheduleTrigger")))
-            .apply();
+            .create();
     }
 
     @SuppressWarnings("unchecked")

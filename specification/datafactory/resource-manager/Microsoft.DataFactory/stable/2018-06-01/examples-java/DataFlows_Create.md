@@ -15,21 +15,18 @@ public final class Main {
     /*
      * operationId: DataFlows_CreateOrUpdate
      * api-version: 2018-06-01
-     * x-ms-examples: DataFlows_Update
+     * x-ms-examples: DataFlows_Create
      */
     /**
-     * Sample code: DataFlows_Update.
+     * Sample code: DataFlows_Create.
      *
      * @param manager Entry point to DataFactoryManager.
      */
-    public static void dataFlowsUpdate(com.azure.resourcemanager.datafactory.DataFactoryManager manager) {
-        DataFlowResource resource =
-            manager
-                .dataFlows()
-                .getWithResponse("exampleResourceGroup", "exampleFactoryName", "exampleDataFlow", null, Context.NONE)
-                .getValue();
-        resource
-            .update()
+    public static void dataFlowsCreate(com.azure.resourcemanager.datafactory.DataFactoryManager manager) {
+        manager
+            .dataFlows()
+            .define("exampleDataFlow")
+            .withExistingFactory("exampleResourceGroup", "exampleFactoryName")
             .withProperties(
                 new MappingDataFlow()
                     .withDescription(
@@ -67,7 +64,7 @@ public final class Main {
                             + " ConditionalSplit1@(USD, CAD)\n"
                             + "ConditionalSplit1@USD sink(saveMode:'overwrite' ) ~> USDSink\n"
                             + "ConditionalSplit1@CAD sink(saveMode:'overwrite' ) ~> CADSink"))
-            .apply();
+            .create();
     }
 }
 ```

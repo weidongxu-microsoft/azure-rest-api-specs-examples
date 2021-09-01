@@ -23,23 +23,19 @@ public final class Main {
     /*
      * operationId: Pipelines_CreateOrUpdate
      * api-version: 2018-06-01
-     * x-ms-examples: Pipelines_Update
+     * x-ms-examples: Pipelines_Create
      */
     /**
-     * Sample code: Pipelines_Update.
+     * Sample code: Pipelines_Create.
      *
      * @param manager Entry point to DataFactoryManager.
      */
-    public static void pipelinesUpdate(com.azure.resourcemanager.datafactory.DataFactoryManager manager)
+    public static void pipelinesCreate(com.azure.resourcemanager.datafactory.DataFactoryManager manager)
         throws IOException {
-        PipelineResource resource =
-            manager
-                .pipelines()
-                .getWithResponse("exampleResourceGroup", "exampleFactoryName", "examplePipeline", null, Context.NONE)
-                .getValue();
-        resource
-            .update()
-            .withDescription("Example description")
+        manager
+            .pipelines()
+            .define("examplePipeline")
+            .withExistingFactory("exampleResourceGroup", "exampleFactoryName")
             .withActivities(
                 Arrays
                     .asList(
@@ -56,11 +52,26 @@ public final class Main {
                                             SerializerEncoding.JSON),
                                     "type",
                                     "ForEach"))))
-            .withParameters(mapOf("OutputBlobNameList", new ParameterSpecification().withType(ParameterType.ARRAY)))
+            .withParameters(
+                mapOf(
+                    "JobId",
+                    new ParameterSpecification().withType(ParameterType.STRING),
+                    "OutputBlobNameList",
+                    new ParameterSpecification().withType(ParameterType.ARRAY)))
+            .withVariables(mapOf("TestVariableArray", new VariableSpecification().withType(VariableType.ARRAY)))
+            .withRunDimensions(
+                mapOf(
+                    "JobId",
+                    SerializerFactory
+                        .createDefaultManagementSerializerAdapter()
+                        .deserialize(
+                            "{\"type\":\"Expression\",\"value\":\"@pipeline().parameters.JobId\"}",
+                            Object.class,
+                            SerializerEncoding.JSON)))
             .withPolicy(
                 new PipelinePolicy()
                     .withElapsedTimeMetric(new PipelineElapsedTimeMetricPolicy().withDuration("0.00:10:00")))
-            .apply();
+            .create();
     }
 
     @SuppressWarnings("unchecked")

@@ -1,10 +1,12 @@
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.5/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
+
 ```java
+
 import com.azure.resourcemanager.datafactory.models.PrivateLinkConnectionApprovalRequest;
 import com.azure.resourcemanager.datafactory.models.PrivateLinkConnectionState;
 
 /** Samples for PrivateEndpointConnectionOperation CreateOrUpdate. */
-public final
-class ApproveRejectPrivateEndpointConnection {
+public final class Main {
     /*
      * operationId: PrivateEndpointConnection_CreateOrUpdate
      * api-version: 2018-06-01
