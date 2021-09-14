@@ -1,7 +1,6 @@
-Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.5/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.6/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
 
 ```java
-
 import com.azure.core.util.Context;
 import com.azure.resourcemanager.datafactory.models.RunFilterParameters;
 import java.time.OffsetDateTime;
@@ -9,9 +8,7 @@ import java.time.OffsetDateTime;
 /** Samples for ActivityRuns QueryByPipelineRun. */
 public final class Main {
     /*
-     * operationId: ActivityRuns_QueryByPipelineRun
-     * api-version: 2018-06-01
-     * x-ms-examples: ActivityRuns_QueryByPipelineRun
+     * x-ms-original-file: specification/datafactory/resource-manager/Microsoft.DataFactory/stable/2018-06-01/examples/ActivityRuns_QueryByPipelineRun.json
      */
     /**
      * Sample code: ActivityRuns_QueryByPipelineRun.
