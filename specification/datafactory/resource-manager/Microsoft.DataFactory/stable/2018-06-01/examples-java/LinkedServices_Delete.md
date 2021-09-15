@@ -1,15 +1,12 @@
-Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.5/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.6/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
 
 ```java
-
 import com.azure.core.util.Context;
 
 /** Samples for LinkedServices Delete. */
 public final class Main {
     /*
-     * operationId: LinkedServices_Delete
-     * api-version: 2018-06-01
-     * x-ms-examples: LinkedServices_Delete
+     * x-ms-original-file: specification/datafactory/resource-manager/Microsoft.DataFactory/stable/2018-06-01/examples/LinkedServices_Delete.json
      */
     /**
      * Sample code: LinkedServices_Delete.
