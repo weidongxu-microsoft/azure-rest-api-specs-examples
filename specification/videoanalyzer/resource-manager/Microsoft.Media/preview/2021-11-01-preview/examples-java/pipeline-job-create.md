@@ -1,4 +1,4 @@
-Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-videoanalyzer_1.0.0-beta.3/sdk/videoanalyzer/azure-resourcemanager-videoanalyzer/README.md) on how to add the SDK to your project and authenticate.
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-videoanalyzer_1.0.0-beta.4/sdk/videoanalyzer/azure-resourcemanager-videoanalyzer/README.md) on how to add the SDK to your project and authenticate.
 
 ```java
 import com.azure.resourcemanager.videoanalyzer.models.ParameterDefinition;
@@ -27,7 +27,8 @@ public final class Main {
                     .asList(
                         new ParameterDefinition()
                             .withName("timesequences")
-                            .withValue("[[2020-10-05T03:30:00Z, 2020-10-05T04:30:00Z]]")))
+                            .withValue("[[\"2020-10-05T03:30:00Z\", \"2020-10-05T04:30:00Z\"]]"),
+                        new ParameterDefinition().withName("videoSourceName").withValue("camera001")))
             .create();
     }
 }

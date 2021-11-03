@@ -1,4 +1,4 @@
-Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-videoanalyzer_1.0.0-beta.3/sdk/videoanalyzer/azure-resourcemanager-videoanalyzer/README.md) on how to add the SDK to your project and authenticate.
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-videoanalyzer_1.0.0-beta.4/sdk/videoanalyzer/azure-resourcemanager-videoanalyzer/README.md) on how to add the SDK to your project and authenticate.
 
 ```java
 import com.azure.resourcemanager.videoanalyzer.models.Kind;
@@ -12,6 +12,7 @@ import com.azure.resourcemanager.videoanalyzer.models.SkuName;
 import com.azure.resourcemanager.videoanalyzer.models.UnsecuredEndpoint;
 import com.azure.resourcemanager.videoanalyzer.models.UsernamePasswordCredentials;
 import com.azure.resourcemanager.videoanalyzer.models.VideoCreationProperties;
+import com.azure.resourcemanager.videoanalyzer.models.VideoPublishingOptions;
 import com.azure.resourcemanager.videoanalyzer.models.VideoSink;
 import java.util.Arrays;
 
@@ -71,7 +72,11 @@ public final class Main {
                                 new VideoCreationProperties()
                                     .withTitle("Parking Lot (Camera 1)")
                                     .withDescription("Parking lot south entrance")
-                                    .withSegmentLength("PT30S"))))
+                                    .withSegmentLength("PT30S"))
+                            .withVideoPublishingOptions(
+                                new VideoPublishingOptions()
+                                    .withDisableArchive("false")
+                                    .withDisableRtspPublishing("true"))))
             .create();
     }
 }
