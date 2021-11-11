@@ -1,4 +1,4 @@
-Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.6/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.7/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
 
 ```java
 import com.azure.resourcemanager.datafactory.models.DataFlowSink;
@@ -53,8 +53,7 @@ public final class Main {
                             + " string,CurrentConversionRate as double),allowSchemaDrift: true,validateSchema: false)"
                             + " ~> CADSource\n"
                             + "USDCurrency, CADSource union(byName: true)~> Union\n"
-                            + "Union derive(NewCurrencyRate = round(CurrentConversionRate*1.25)) ~>"
-                            + " NewCurrencyColumn\n"
+                            + "Union derive(NewCurrencyRate = round(CurrentConversionRate*1.25)) ~> NewCurrencyColumn\n"
                             + "NewCurrencyColumn split(Country == 'USD',Country == 'CAD',disjoint: false) ~>"
                             + " ConditionalSplit1@(USD, CAD)\n"
                             + "ConditionalSplit1@USD sink(saveMode:'overwrite' ) ~> USDSink\n"
