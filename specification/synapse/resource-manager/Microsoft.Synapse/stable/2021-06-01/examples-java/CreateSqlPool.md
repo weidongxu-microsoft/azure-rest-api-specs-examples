@@ -1,6 +1,7 @@
-Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-synapse_1.0.0-beta.3/sdk/synapse/azure-resourcemanager-synapse/README.md) on how to add the SDK to your project and authenticate.
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-synapse_1.0.0-beta.4/sdk/synapse/azure-resourcemanager-synapse/README.md) on how to add the SDK to your project and authenticate.
 
 ```java
+import com.azure.resourcemanager.synapse.models.CreateMode;
 import com.azure.resourcemanager.synapse.models.Sku;
 import com.azure.resourcemanager.synapse.models.StorageAccountType;
 import java.util.HashMap;
@@ -28,7 +29,7 @@ public final class Main {
             .withCollation("")
             .withSourceDatabaseId("")
             .withRecoverableDatabaseId("")
-            .withCreateMode("")
+            .withCreateMode(CreateMode.fromString(""))
             .withStorageAccountType(StorageAccountType.LRS)
             .create();
     }
