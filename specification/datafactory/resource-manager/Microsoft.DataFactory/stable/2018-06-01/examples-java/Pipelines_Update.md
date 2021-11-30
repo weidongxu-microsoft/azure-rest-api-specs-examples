@@ -1,6 +1,7 @@
-Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.7/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.8/sdk/datafactory/azure-resourcemanager-datafactory/README.md) on how to add the SDK to your project and authenticate.
 
 ```java
+
 import com.azure.core.management.serializer.SerializerFactory;
 import com.azure.core.util.Context;
 import com.azure.core.util.serializer.SerializerEncoding;
@@ -10,13 +11,15 @@ import com.azure.resourcemanager.datafactory.models.ParameterType;
 import com.azure.resourcemanager.datafactory.models.PipelineElapsedTimeMetricPolicy;
 import com.azure.resourcemanager.datafactory.models.PipelinePolicy;
 import com.azure.resourcemanager.datafactory.models.PipelineResource;
+import com.azure.resourcemanager.datafactory.models.VariableSpecification;
+import com.azure.resourcemanager.datafactory.models.VariableType;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 /** Samples for Pipelines CreateOrUpdate. */
-public final class Main {
+public final class PipelinesCreateOrUpdateSamples {
     /*
      * x-ms-original-file: specification/datafactory/resource-manager/Microsoft.DataFactory/stable/2018-06-01/examples/Pipelines_Update.json
      */
